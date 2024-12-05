@@ -1,0 +1,27 @@
+// Problem statement "https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/rotate-array-by-n-elements-1587115621"
+
+// For more information goto the "https://www.geeksforgeeks.org/complete-guide-on-array-rotations/"
+
+// it uses temp array to rotate a array to left. We can also use "Juggling Algorithm", "Reversal Algorithm" with time complexity O(n)
+
+
+class Solution {
+    // Function to rotate an array by d elements in counter-clockwise direction.
+    static void rotateArr(int arr[], int d) {
+        // add your code here
+        int n=arr.length;
+        int[] temp = new int[n];
+        //if d>n
+        d = d%n;
+
+        for(int i=0;i<d;i++){
+            temp[n-d+i]=arr[i];
+        }
+        for(int i=0;i<n-d;i++){
+            temp[i]=arr[d+i];
+        }
+        for(int i=0;i<n;i++){
+            arr[i]=temp[i];
+        }
+    }
+}
